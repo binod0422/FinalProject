@@ -39,3 +39,12 @@ img{
     height: 13em; 
 }
 
+#logo{
+    font-family: 'Monomaniac One', sans-serif;
+    font-size: 200%;
+}
+
+ul{
+    margin-left:auto;
+    margin-right: auto;
+}
