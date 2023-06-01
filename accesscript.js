@@ -42,6 +42,36 @@ const products = [
         description: 'Webcam with Microphone, 110-Degree View Angle',
         price: 15.99
     },
+    {
+        name: 'Headphones w/Microphone',
+        image: 'https://m.media-amazon.com/images/I/616Q22O4lEL._AC_SX679_.jpg',
+        description: 'Kensington Hi-Fi Headphones with Microphone (K97603WW), Black, Universal',
+        price: 19.99
+    },
+    {
+        name: 'Wireless Keyboard',
+        image: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/9613/9613864_sd.jpg;maxHeight=400;maxWidth=600',
+        description: 'Logitech - K350 Ergonomic Full-size Membrane Wireless Keyboard - Black',
+        price: 38.99
+    },
+    {
+        name: 'Apple Keyboard',
+        image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQ052?wid=4000&hei=1800&fmt=jpeg&qlt=95&.v=1495129815011',
+        description: 'Apple - Magic Keyboard with Numeric Keypad - Silver',
+        price: 129.99 
+    },
+    {
+        name: 'Apple Mouse',
+        image: 'https://m.media-amazon.com/images/I/61BZ5N9n4IL._AC_SX679_.jpg',
+        description: 'Apple - Magic Mouse - White',
+        price: 79.99 
+    },
+    {
+        name: 'Monitor Cable',
+        image: 'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6473/6473494ld.jpg;maxHeight=400;maxWidth=600',
+        description: 'Insignia™ - 6inch VGA Monitor Cable - Black',
+        price: 14.99 
+    },
 ]
 
 function generateProductCards() {
@@ -61,7 +91,7 @@ function generateProductCards() {
                     </div>
                     <div class="d-flex mt-1 justify-content-between">
                         <p class='card-text fs-5 fw-bold'>$ ${product.price}</p>
-                        <input type="number" class="ps-3" value="1" min="1" max="10">
+                        <input type="number" class="ps-3" value="0" min="1" max="10">
                     </div>
                     <div class="d-flex justify-content-between">
                         <button type='button' class='btn btn-green mt-1'>Buy Now</button>
