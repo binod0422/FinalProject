@@ -52,14 +52,15 @@ h1 {
 }
 .card{
     padding: 2px;
-    background-color: #90e0ef;
+    background-color: #03045e;
+    color: white;
     height: 35em; 
     position: relative; 
 }
 .card:hover {
     box-shadow: 0 12px 20px #03045e;
     transition: box-shadow 0.3s ease;
-} */
+} 
 img{
     height: 13em; 
 }
