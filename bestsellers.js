@@ -1,80 +1,133 @@
-import products from "./productList"
+import { moreProducts, bestSellers } from "./productList.js";
 
-let bestSellers = [
-    {
-        name: 'Apple',
-        image: './images/mac1.jpg',
-        description: 'MacBook Pro Laptop M2 Pro chip with 12‑core CPU and 19‑core GPU: 16.2-inch Liquid Retina XDR Display, 16GB Unified Memory, 512GB SSD Storage',
-        price: 2431
-    },
-    {
-        name: 'Dell',
-        image: './images/dell1.jpg',
-        description: 'Dell Inspiron 15 3000 Series 3520 Laptop, 15.6" FHD Touchscreen, 12th Gen Intel Core i7-1255U, 32GB RAM, 512GB PCIe SSD, Webcam, HDMI, Wi-Fi 6, Windows 11',
-        price: 919
-    },
-    {
-        name: 'Lenovo',
-        image: './images/lenovo.jpg',
-        description: 'IdeaPad 3 14" FHD Laptop, 11th Gen Intel 4-Core i7-1165G7, Intel Iris Xe Graphics, 12GB RAM, 256GB PCIe SSD, FP Reader, Webcam, USB-C, HDMI, SD Card Reader, WiFi 6, SPS HDMI Cable, Win 11 Home',
-        price: 899
-    },
-    {
-        name: 'Asus',
-        image: './images/asus1.jpg',
-        description: 'VivoBook 15 15.6" FHD Laptop, Intel Core i5-1240P, 16GB RAM, 1TB PCIe SSD, Intel Iris Xe Graphics, Backlit Keyboard, Fingerprint Reader, Wi-Fi 6, Win 11, Blue, 32GB Snowbell USB Card',
-        price: 719
-    },
-    {
-        name: 'Apple',
-        image: './images/mac2.jpg',
-        description: 'MacBook Air Laptop M1 Chip, 13" Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad',
-        price: 799
-    },
-    {
-        name: 'Dell',
-        image: './images/dell2.jpg',
-        description: 'Inspiron 15 3511 Laptop, 15.6" FHD Touchscreen, Intel Core i7-1165G7 Processor, 32GB DDR4 RAM, 1TB PCIe SSD, Webcam, HDMI, Bluetooth, Wi-Fi, Windows 11 Home, Black',
-        price: 973
-    },
-    {
-        name: 'Lenovo',
-        image: './images/lenovo.jpg',
-        description: 'ThinkPad X1 Carbon Gen 10, Intel i7-1260P (12 Cores), 14" FHD (1920 x 1200) IPS, Anti-Glare, 16GB DDR5, 2TB SSD, 4G WWAN, Nano SIM Card, 1080p Camera, Win 11 Pro ',
-        price: 1999
-    },
-    {
-        name: 'Asus',
-        image: './images/asus2.jpg',
-        description: 'TUF Dash 15 (2022) Gaming Laptop, 15.6" 144Hz FHD Display, Intel Core i7-12650H, GeForce RTX 3060, 16GB DDR5, 512GB SSD, Thunderbolt 4, Windows 11 Home',
-        price: 799
-    },
-    {
-        name: 'Apple',
-        image: './images/mac3.jpg',
-        description: 'MacBook Pro (14-inch, M1 Pro chip with 10‑core CPU and 16‑core GPU, 16GB RAM, 1TB SSD)',
-        price: 1899
-    },
-    {
-        name: 'Dell',
-        image: './images/dell3.jpg',
-        description: ' Latitude 7430 14" Laptop (Latest Latitude 2023) Intel 12th Gen Core i7-1265U(10-Core) 512GB SSD 16GB RAM Full HD (1920x1080) Windows 11 PRO',
-        price: 1029
-    },
-    {
-        name: 'Lenovo',
-        image: './images/lenovo.jpg',
-        description: 'IdeaPad Slim 9 9i Pro 14ITL5 14" 4K UHD Touchscreen (Intel 4-Core i7-1195G7, 16GB RAM, 2TB PCIe SSD) Business Laptop, Backlit, Fingerprint, 2 x Thunderbolt 4, IR-Webcam, Windows 11 Pro',
-        price: 1099
-    },
-    {
-        name: 'Asus',
-        image: './images/asus3.jpg',
-        description: 'VivoBook 15 Laptop Computer, 15.6" FHD Display, AMD Ryzen 5 4600H Hexa-core Up to 4.0 GHz, 16GB RAM DDR4, 512GB PCIe SSD, Blacklit, Fingerprint, Webcam, Type-C, Win11 Pro',
-        price: 529
+// Get references to the elements with IDs "cart", "search", and "login"
+const cart = document.getElementById("cart");
+const search = document.getElementById("search");
+const login = document.getElementById("login");
+
+// Initialize cartCount and alertMessage variables
+let cartCount = 0;
+let alertMessage = null;
+
+// Function to generate product cards for best sellers
+function generateBestSellers() {
+  // Get reference to the container element for best sellers
+  const bestSellersContainer = document.getElementById("bestSellers");
+
+  // Loop through each product in bestSellers array and create a card
+  bestSellers.forEach((product) => {
+    const card = createProductCard(product);
+    // Append the card to the best sellers container
+    bestSellersContainer.appendChild(card);
+  });
+}
+
+// Function to generate product cards for more products
+function generateMoreProducts() {
+  // Get reference to the container element for more products
+  const moreProductsContainer = document.getElementById("moreProducts");
+
+  // Loop through each product in moreProducts array and create a card
+  moreProducts.forEach((product) => {
+    const card = createProductCard(product);
+    // Append the card to the more products container
+    moreProductsContainer.appendChild(card);
+  });
+}
+
+// Function to create a product card
+function createProductCard(product) {
+  const card = document.createElement("div");
+  card.classList.add(
+    "col-12",
+    "col-md-6",
+    "col-lg-4",
+    "col-xl-3",
+    "pb-3"
+  );
+
+  // Define the card's content using template literals
+  const cardContent = `
+    <div class='card'>
+        <img src='${product.image}' class='card-img-top' alt='card-img-top'>
+        <div class='card-body d-flex flex-column justify-content-between'>
+            <div>
+                <h5 class='card-title'>${product.name}</h5>
+                <p class='card-text'>${product.description}</p>
+            </div>
+            <div class="d-flex mt-1 justify-content-between">
+                <p class='card-text fs-5 fw-bold'>$ ${product.price}</p>
+                <input type="number" class="ps-3" value="1" min="1" max="10">
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type='button' class='btn btn-green mt-1'>Buy Now</button>
+                <button type='button' class='btn btn-yellow mt-1'>Add to cart</button>
+            </div>
+        </div>
+    </div>
+  `;
+
+  // Set the card's HTML content
+  card.innerHTML = cardContent;
+
+  const addToCartButton = card.querySelector(".btn-yellow");
+  addToCartButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const quantityInput = card.querySelector('input[type="number"]');
+    //converts the quantity into integer with base of 10
+    const quantity = parseInt(quantityInput.value, 10);
+
+    // Check if quantity is greater than 0
+    if (quantity > 0) {
+      cartCount += quantity;
+      // Update the cart HTML content with the updated cart count
+      cart.innerHTML = `
+        <div class="d-flex align-items-center">
+            <a href=""> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+            class="bi bi-cart" viewBox="0 0 16 16">
+            <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </svg> </a>
+            <p class="text-center fs-4">+ ${cartCount}</p>
+        </div>`;
+    } else {
+      alertMessage = alert("Please select a quantity greater than 0.");
     }
-];
+  });
 
+  const buyNowButton = card.querySelector(".btn-green");
+  buyNowButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    // Add your logic here to add the product to the cart
+  });
 
+  return card;
+}
 
-const checkout = document.getElementById("bestSellers")
+// Call the generateBestSellers function to generate the best sellers product cards
+generateBestSellers();
+
+// Call the generateMoreProducts function to generate the more products product cards
+generateMoreProducts();
+
+// Event listener for the cart element
+cart.addEventListener("click", (e) => {
+  e.preventDefault();
+  // Check if cartCount is 0 and if there's an alertMessage
+  if (cartCount === 0 && alertMessage !== null) {
+    alertMessage.close(); // Close the alert message
+    alertMessage = null; // Reset the alertMessage variable
+  }
+});
+
+// Event listener for the search element
+search.addEventListener("click", (e) => {
+  e.preventDefault();
+  // Add your logic here for search functionality
+});
+
+// Event listener for the login element
+login.addEventListener("click", (e) => {
+  e.preventDefault();
+  // Add your logic here for login functionality
+});

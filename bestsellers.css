@@ -9,6 +9,15 @@ body {
     font-family: Helvetica, sans-serif; 
 }
 
+h1 {
+    padding: .5em 4em;
+    background-color: white;
+    border-radius: 10px;
+    color: #03045E;
+    width: 15em; 
+    text-align: center;
+}
+
 /* Nav Bar */
 #logo{
     font-family: 'Monomaniac One', sans-serif;
@@ -25,3 +34,39 @@ body {
     margin-right: auto;
 }
 /* End of Nav bar */ 
+
+/* Card styles */
+.btn-green {
+    background-color: #06d6a0;
+}
+
+.btn-green:hover{
+    background-color: #caf0f8;
+}
+.btn-yellow {
+    background-color: #ffd60a;
+}
+
+.btn-yellow:hover {
+    background-color: #caf0f8;
+}
+.card{
+    padding: 2px;
+    height: 35em; 
+    position: relative; 
+    line-height: 2em; 
+}
+/* .card:hover {
+    box-shadow: 0 12px 20px #03045e;
+    transition: box-shadow 0.3s ease;
+} */
+.card-img-top{
+    height: 13em; 
+}
+
+#carousel1{
+    height: 40em; 
+    background-color: red; 
+    opacity: .9
+}
+
