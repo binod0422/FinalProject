@@ -1,5 +1,5 @@
 
-const products = [
+let products = [
     {
         name: 'Apple',
         image: './images/mac1.jpg',
@@ -151,48 +151,4 @@ const products = [
 //     }
 // ];
 
-
-function generateProductCards() {
-    const productsContainer = document.getElementById('products');
-
-    products.forEach((product) => {
-        const card = document.createElement('div');
-        card.className = 'col-12 col-md-6 col-lg-4 col-xl-3 pb-3';
-
-        const cardContent = `
-            <div class='card'>
-                <img src='${product.image}' class='card-img-top' alt='card-img-top'>
-                <div class='card-body d-flex flex-column justify-content-between'>
-                    <div>
-                        <h5 class='card-title'>${product.name}</h5>
-                        <p class='card-text'>${product.description}</p>
-                    </div>
-                    <div class="d-flex mt-1 justify-content-between">
-                        <p class='card-text fs-5 fw-bold'>$ ${product.price}</p>
-                        <input type="number" class="ps-3" value="1" min="1" max="10">
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <button type='button' class='btn btn-green mt-1'>Buy Now</button>
-                        <button type='button' class='btn btn-yellow mt-1'>Add to cart</button>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        card.innerHTML = cardContent;
-        productsContainer.appendChild(card);
-
-        const addToCartButton = card.querySelector('.btn-yellow');
-        addToCartButton.addEventListener('click', () => {
-            addToCartButton.innerHTML = `<p>Added to cart</p>`;
-            // Add your logic here to add the product to the cart
-        });
-
-        const buyNowButton = card.querySelector('.btn-green');
-        buyNowButton.addEventListener('click', () => {
-            buyNowButton.innerHTML = 'Thank you';
-        });
-    });
-}
-
-generateProductCards();
+export {products}; 
