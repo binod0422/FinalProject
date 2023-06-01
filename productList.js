@@ -2,7 +2,7 @@
 let products = [
     {
         name: 'Apple',
-        image: './images/mac1.jpg',
+        image: './images/mac3.jpg',
         description: 'MacBook Pro Laptop M2 Pro chip with 12‑core CPU and 19‑core GPU: 16.2-inch Liquid Retina XDR Display, 16GB Unified Memory, 512GB SSD Storage',
         price: 2431
     },
@@ -50,7 +50,7 @@ let products = [
     },
     {
         name: 'Apple',
-        image: './images/mac3.jpg',
+        image: './images/mac1.jpg',
         description: 'MacBook Pro (14-inch, M1 Pro chip with 10‑core CPU and 16‑core GPU, 16GB RAM, 1TB SSD)',
         price: 1899
     },
@@ -80,7 +80,7 @@ let products = [
 let bestSellers = [
     {
         name: 'Apple',
-        image: './images/mac1.jpg',
+        image: './images/mac3.jpg',
         description: 'MacBook Pro Laptop M2 Pro chip with 12‑core CPU and 19‑core GPU: 16.2-inch Liquid Retina XDR Display, 16GB Unified Memory, 512GB SSD Storage',
         price: 2431
     },
@@ -92,7 +92,7 @@ let bestSellers = [
     },
     {
         name: 'Apple',
-        image: './images/mac3.jpg',
+        image: './images/mac1.jpg',
         description: 'MacBook Pro (14-inch, M1 Pro chip with 10‑core CPU and 16‑core GPU, 16GB RAM, 1TB SSD)',
         price: 1899
     },
