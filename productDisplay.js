@@ -25,7 +25,7 @@ function generateProductCards() {
                 <img src='${product.image}' class='card-img-top' alt='card-img-top'>
                 <div class='card-body d-flex flex-column justify-content-between'>
                     <div>
-                        <h5 class='card-title'>${product.name}</h5>
+                        <h5 class='card-title fw-bold'>${product.name}</h5>
                         <p class='card-text'>${product.description}</p>
                     </div>
                     <div class="d-flex mt-1 justify-content-between">
@@ -33,8 +33,8 @@ function generateProductCards() {
                         <input type="number" class="ps-3" value="1" min="1" max="10">
                     </div>
                     <div class="d-flex justify-content-between">
-                        <button type='button' class='btn btn-green mt-1'>Buy Now</button>
                         <button type='button' class='btn btn-yellow mt-1'>Add to cart</button>
+                        <button type='button' class='btn btn-green mt-1'>Buy now</button>
                     </div>
                 </div>
             </div>
@@ -69,10 +69,6 @@ function generateProductCards() {
                 alertMessage = alert('Please select a quantity greater than 0.');
             }
 
-            if(cartCount > 1){
-
-            }
-
         });
 
         const buyNowButton = card.querySelector('.btn-green');
@@ -93,12 +89,14 @@ function generateProductCards() {
     });
 
     // Event listener for the search element
+    //for future use
     search.addEventListener("click", (e) => {
         e.preventDefault();
         // Add your logic here for search functionality
     });
 
     // Event listener for the login element
+    //for future use
     login.addEventListener("click", (e) => {
         e.preventDefault();
         // Add your logic here for login functionality

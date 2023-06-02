@@ -60,8 +60,8 @@ function createProductCard(product) {
                 <input type="number" class="ps-3" value="1" min="1" max="10">
             </div>
             <div class="d-flex justify-content-between">
-                <button type='button' class='btn btn-green mt-1'>Buy Now</button>
                 <button type='button' class='btn btn-yellow mt-1'>Add to cart</button>
+                <button type='button' class='btn btn-green mt-1'>Buy Now</button>
             </div>
         </div>
     </div>
