@@ -1,6 +1,21 @@
-html {
+#A{
     position:relative;
-    background-image: url(./Imgs/Techbackground.jpg);
+    background-image: url(./Imgs/giphy.gif);
+    background-size: cover;
+}
+#B{
+    position:relative;
+    background-image: url(./Imgs/another.gif);
+    background-size: cover;
+}
+#C{
+    position:relative;
+    background-image: url(./Imgs/other.webp);
+    background-size: cover;
+}
+#D{
+    position:relative;
+    background-image: url(./Imgs/yup.gif);
     background-size: cover;
 }
 
