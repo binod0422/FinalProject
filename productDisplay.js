@@ -33,7 +33,7 @@ function generateProductCards() {
                         <input type="number" class="ps-3" value="1" min="1" max="10">
                     </div>
                     <div class="d-flex justify-content-between">
-                        <button type='button' class='btn btn-yellow mt-1'>Add to cart</button>
+                        <button type='button' class='btn addcart btn-yellow mt-1'>Add to cart</button>
                         <button type='button' class='btn btn-green mt-1'>Buy now</button>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ function generateProductCards() {
         // Append the card to the products container
         productsContainer.appendChild(card);
 
-        const addToCartButton = card.querySelector('.btn-yellow');
+        const addToCartButton = card.querySelector('.addcart');
         addToCartButton.addEventListener('click', (e) => {
             e.preventDefault();
             const quantityInput = card.querySelector('input[type="number"]');
