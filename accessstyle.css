@@ -36,7 +36,8 @@ h1 {
 }
 
 .btn-green {
-    background-color: #06d6a0;
+    background-color: #04045e;
+    color: white;
 }
 
 .btn-green:hover {
@@ -44,7 +45,9 @@ h1 {
 }
 
 .btn-yellow {
-    background-color: #ffd60a;
+    background-color: white;
+    color: #0077B6;
+    outline-color: #0077B6;
 }
 
 .btn-yellow:hover {
