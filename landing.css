@@ -22,7 +22,10 @@
     color:#0077B6
 
 }
-
+.navbar{
+    padding: 1em; 
+    font-size: 1em; 
+}
 
 /* END NAV BAR */
 

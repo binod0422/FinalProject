@@ -25,7 +25,10 @@ body {
 .nav-link:hover{
     color:#0077B6
 }
-
+.navbar{
+    padding: 1em; 
+    font-size: 1em; 
+}
 /* End of Nav bar */ 
 
 h1{

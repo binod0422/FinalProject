@@ -23,6 +23,11 @@
     color: #0077B6
 }
 
+.navbar{
+    padding: 1em; 
+    font-size: 1em; 
+}
+
 /* END NAV BAR */
 
 h1{
@@ -74,3 +79,4 @@ img {
     margin-top: 100px;
     text-align: center;
 }
+
