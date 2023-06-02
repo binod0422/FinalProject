@@ -16,7 +16,7 @@ class GearController {
     }
 
     setLocalStorage(){
-        localstorage.setItem("gear", JSON.stringify(this.gearArray))
+       localStorage.setItem("gear", JSON.stringify(this.gearArray))
         localStorage.setItem("current-id", JSON.stringify(this.currentID))
     }
 
