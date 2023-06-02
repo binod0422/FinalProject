@@ -1,12 +1,12 @@
 html {
     position:relative;
-    background-image: url("../images/bachelorInBack.jpg");
+    background-image: url(./Imgs/Techbackground.jpg);
     background-size: cover;
 }
 
 .maintxt {
     position: absolute;
-    color: whitesmoke;
+    color: rgb(245, 245, 245);
 }
 
 .img-thumbnail{
@@ -15,14 +15,19 @@ html {
 }
 
 .deleteBtn {
-    background-color: #dc3545 !important;
+    background-color: #e0081e !important;
 }
 
 .updateBtn {
-    background-color:  #0d6efd !important;
+    background-color:  #0468fd !important;
+}
+.col{
+    font-family: 'Times New Roman', Times, serif;
 }
 
-
+#gearRows{
+    background-color: #9d9dc2;
+}
 
 
 
