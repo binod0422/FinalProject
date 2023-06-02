@@ -19,13 +19,15 @@
 }
 .nav-link:hover{
     color:#0077B6
-
 }
 /* END NAV BAR */
 
 h1{
     color: #03045E; 
+    letter-spacing: 1px;  
+    font-size: 3em; 
 }
+
 #btn{
     background-color: #03045E;
     color: white;
@@ -39,3 +41,8 @@ h1{
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow */
 }
     
+.footer{
+    background-color: #03045E;
+    margin-top: 100px;
+    text-align: center;
+}
