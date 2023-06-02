@@ -10,10 +10,9 @@ body {
 
 h1 {
     padding: .5em 4em;
-    background-color: #03045E;
+    color: #03045E;
     border-radius: 10px;
     width: 16em; 
-    color: white; 
     text-align: center;
 }
 

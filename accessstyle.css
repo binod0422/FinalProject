@@ -1,48 +1,48 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap');
 /* "COMP CONNECTION HUB" font */
 
-#logo{
+#logo {
     font-family: 'Monomaniac One', sans-serif;
     font-size: 200%;
 }
-#comp-connection{
-    color:#0077B6;
+
+#comp-connection {
+    color: #0077B6;
 }
-#hub{
-   color: #03045E; 
+
+#hub {
+    color: #03045E;
 }
-#nav-links{
-    margin-left:auto;
+
+#nav-links {
+    margin-left: auto;
     margin-right: auto;
 }
-.nav-item {
-    text-align: center;
+
+.nav-link:hover {
+    color: #0077B6
 }
 
-
- body {
-    padding: 0;
-    margin: 0;
-    background-color: white;
-    font-family: Helvetica, sans-serif; 
-}
-
+/* END NAV BAR */
 
 h1 {
-    padding: .5em 4em;
-    background-color: #03045e;
-    border-radius: 10px;
+    color: #03045E;
+}
+
+#btn {
+    background-color: #03045E;
     color: white;
+    font-weight: bold;
 }
 
 .btn-green {
     background-color: #06d6a0;
 }
 
-.btn-green:hover{
+.btn-green:hover {
     background-color: #caf0f8;
 }
+
 .btn-yellow {
     background-color: #ffd60a;
 }
@@ -50,21 +50,24 @@ h1 {
 .btn-yellow:hover {
     background-color: #caf0f8;
 }
-.card{
-    padding: 2px;
-    background-color: #03045e;
-    color: white;
-    height: 35em; 
-    position: relative; 
+
+
+.card {
+    padding: 20px;
+    height: 40em;
+    position: relative;
+    line-height: 2em;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Adding shadow */
 }
-.card:hover {
-    box-shadow: 0 12px 20px #03045e;
-    transition: box-shadow 0.3s ease;
-} 
-img{
-    height: 13em; 
+
+
+img {
+    height: 13em;
 }
-.footer{
+
+.footer {
     background-color: #03045E;
     margin-top: 100px;
     text-align: center;

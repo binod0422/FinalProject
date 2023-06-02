@@ -32,7 +32,10 @@ h1{
     font-weight: bold;
 }
 
-#btn-2{
-    
-    
+.card {
+    padding: 20px;
+    line-height: 2em;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow */
 }
+    
