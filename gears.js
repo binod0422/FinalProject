@@ -1,6 +1,6 @@
 const gearCards = document.getElementById("gearCards")
 
-const gearController = new GearController()
+const gearController = new gearController()
 
 
 
