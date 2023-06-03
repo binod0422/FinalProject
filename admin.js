@@ -1,49 +1,42 @@
 // DOM VARIABLES
-const gearForm = document.getElementById("gearForm")
-const gearRows = document.getElementById("gearRows")
+const productForm = document.getElementById("productForm");
+const productRows = document.getElementById("productRows");
 
-const gearController = new GearController()
+const productController = new ProductController();
 
-
-
-const displayGear = function(){
-    let gearArr = gearController.getLocalStorage()
-    gearRows.innerHTML = ''
-    gearArr.forEach(gear => {
-        let row = document.createElement("tr")
-        row.setAttribute("data-id", gear.id)
-        row.innerHTML = `
-        <td><img src="${gear.url}"></td>
-        <td>${gear.type}</td>
-        <td>${gear.category}</td>
-        <td>${gear.price}</td>
-        `
-        gearRows.append(row)
-    })
-
-    console.log(gearArr)
-
-}
-
-
-
-
+const displayProducts = function() {
+  let productArr = productController.getLocalStorage();
+  productRows.innerHTML = "";
+  productArr.forEach(product => {
+    let row = document.createElement("tr");
+    row.setAttribute("data-id", product.id);
+    row.innerHTML = `
+      <td><img src="${product.image}" alt="Product Image"></td>
+      <td>${product.name}</td>
+      <td>${product.description}</td>
+      <td>${product.price}</td>
+      <td>${product.category}</td>
+    `;
+    productRows.append(row);
+  });
+};
 
 // EVENT LISTENERS
-gearForm.addEventListener("submit", function(event){
-    event.preventDefault()
-    const gearUrl = document.getElementById("gearURL").value
-    const gearType = document.getElementById("gearType").value
-    const gearPrice = document.getElementById("gearPrice").value
-    const gearCategory = document.getElementById("gearCategory").value
+productForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  const productImage = document.getElementById("productImage").value;
+  const productName = document.getElementById("productName").value;
+  const productDescription = document.getElementById("productDescription").value; 
+  const productPrice = document.getElementById("productPrice").value;
+  const productCategory = document.getElementById("productCategory").value;
 
-    gearController.addGear(gearUrl, gearCategory, gearPrice, gearType)
-    gearController.setLocalStorage()
-    
-    displayGear()
+  productController.addProduct(productImage, productName, productDescription, productPrice, productCategory);
 
+  productController.setLocalStorage();
 
-    gearForm.reset()
-})
+  displayProducts();
 
-displayGear()
+  productForm.reset();
+});
+
+displayProducts();
