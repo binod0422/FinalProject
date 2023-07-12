@@ -1,68 +1,72 @@
-// DOM VARIABLES
-const gearForm = document.getElementById("gearForm")
-const gearRows = document.getElementById("gearRows")
+const productForm = document.getElementById("productForm");
+const productRows = document.getElementById("productRows");
+const productURL = "http://localhost:8080/products"; 
 
-const gearController = new GearController()
+productForm.addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-
-
-const displayGear = function(){
-    let gearArr = gearController.getLocalStorage()
-    gearRows.innerHTML = ''
-    gearArr.forEach(gear => {
-        let row = document.createElement("tr")
-        row.setAttribute("data-id", gear.id)
-        row.innerHTML = `
-        <td><img src="${gear.url}"></td>
-        <td>${gear.type}</td>
-        <td>${gear.category}</td>
-        <td>${gear.price}</td>
-        `
-        gearRows.append(row)
-    })
-
-    console.log(gearArr)
-
-}
+  const form = event.target;
+  const formData = new FormData(form);
+  const product = {
+    image: formData.get('productImage'),
+    name: formData.get('productName'),
+    description: formData.get('productDescription'),
+    price: formData.get('productPrice'),
+    category: formData.get('productCategory')
+  };
 
 
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
+  try {
+    const response = await fetch(productURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(product)
+    });
+
+    if (response.ok) {
+      console.log("Product added successfully");
+      getProduct(); // Fetch the updated list of products after adding a new product
+    } else {
+      throw new Error("Unable to add product: " + response.status);
     }
+  } catch (error) {
+    console.error("Error: " + error);
   }
-  
 
+  productForm.reset();
+});
 
-// EVENT LISTENERS
-gearForm.addEventListener("submit", function(event){
-    event.preventDefault()
-    const gearUrl = document.getElementById("gearURL").value
-    const gearType = document.getElementById("gearType").value
-    const gearPrice = document.getElementById("gearPrice").value
-    const gearCategory = document.getElementById("gearCategory").value
+const getProduct = async () => {
+  try {
+    const response = await fetch(productURL);
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      displayProducts(data); // Pass the retrieved products to the displayProducts function
+    } else {
+      throw new Error("Unable to get products");
+    }
+  } catch (error) {
+    console.log("Error: " + error);
+  }
+};
 
-    gearController.addGear(gearUrl, gearCategory, gearPrice, gearType)
-    gearController.setLocalStorage()
-    
-    displayGear()
+const displayProducts = function(products) {
+  productRows.innerHTML = "";
+  products.forEach(product => {
+    let row = document.createElement("tr");
+    row.setAttribute("data-id", product.id);
+    row.innerHTML = `
+      <td><img src="${product.image}" alt="Product Image"></td>
+      <td>${product.name}</td>
+      <td>${product.description}</td>
+      <td>${product.price}</td>
+      <td>${product.category}</td>
+    `;
+    productRows.append(row);
+  });
+};
 
-
-    gearForm.reset()
-})
-
-displayGear()
+getProduct(); 

@@ -75,8 +75,6 @@ let products = [
 ];
 
 
-
-
 let bestSellers = [
     {
         name: 'Apple',
