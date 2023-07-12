@@ -1,13 +1,67 @@
 // DOM VARIABLES
+// const productForm = document.getElementById("productForm");
+
+// const productURL = "localhost:8080/products"; 
+// const productController = new ProductController();
+
 const productForm = document.getElementById("productForm");
 const productRows = document.getElementById("productRows");
+const productURL = "http://localhost:8080/products"; 
 
-const productController = new ProductController();
+productForm.addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-const displayProducts = function() {
-  let productArr = productController.getLocalStorage();
+  const form = event.target;
+  const formData = new FormData(form);
+  const product = {
+    image: formData.get('productImage'),
+    name: formData.get('productName'),
+    description: formData.get('productDescription'),
+    price: formData.get('productPrice'),
+    category: formData.get('productCategory')
+  };
+
+
+  try {
+    const response = await fetch(productURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(product)
+    });
+
+    if (response.ok) {
+      console.log("Product added successfully");
+      getProduct(); // Fetch the updated list of products after adding a new product
+    } else {
+      throw new Error("Unable to add product: " + response.status);
+    }
+  } catch (error) {
+    console.error("Error: " + error);
+  }
+
+  productForm.reset();
+});
+
+const getProduct = async () => {
+  try {
+    const response = await fetch(productURL);
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      displayProducts(data); // Pass the retrieved products to the displayProducts function
+    } else {
+      throw new Error("Unable to get products");
+    }
+  } catch (error) {
+    console.log("Error: " + error);
+  }
+};
+
+const displayProducts = function(products) {
   productRows.innerHTML = "";
-  productArr.forEach(product => {
+  products.forEach(product => {
     let row = document.createElement("tr");
     row.setAttribute("data-id", product.id);
     row.innerHTML = `
@@ -21,22 +75,24 @@ const displayProducts = function() {
   });
 };
 
-// EVENT LISTENERS
-productForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-  const productImage = document.getElementById("productImage").value;
-  const productName = document.getElementById("productName").value;
-  const productDescription = document.getElementById("productDescription").value; 
-  const productPrice = document.getElementById("productPrice").value;
-  const productCategory = document.getElementById("productCategory").value;
+getProduct(); // Fetch and display the initial list of products on page load
 
-  productController.addProduct(productImage, productName, productDescription, productPrice, productCategory);
+// // EVENT LISTENERS
+// productForm.addEventListener("submit", function(event) {
+//   event.preventDefault();
+//   const productImage = document.getElementById("productImage").value;
+//   const productName = document.getElementById("productName").value;
+//   const productDescription = document.getElementById("productDescription").value; 
+//   const productPrice = document.getElementById("productPrice").value;
+//   const productCategory = document.getElementById("productCategory").value;
 
-  productController.setLocalStorage();
+//   productController.addProduct(productImage, productName, productDescription, productPrice, productCategory);
 
-  displayProducts();
+//   productController.setLocalStorage();
 
-  productForm.reset();
-});
+//   displayProducts();
 
-displayProducts();
+//   productForm.reset();
+// });
+
+// displayProducts();

@@ -107,21 +107,23 @@
 // generateProductCards();
 
 const productsContainer = document.getElementById('products');
-const productController = new ProductController(); 
+const productURL = "http://localhost:8080/products"; 
 
 
-function generateProductCards() {
-  const productArr = productController.getLocalStorage();
-  console.log(productArr);
+async function generateProductCards() {
+  try {
+    const response = await fetch(productURL);
+    if (response.ok) {
+      const productArr = await response.json();
+      console.log(productArr);
 
+      productArr.forEach((product) => {
+        if (product.category === "Products") {
+          const card = document.createElement('div');
+          card.classList.add('col-12', 'col-md-6', 'col-lg-4', 'col-xl-3', 'pb-3');
 
-  productArr.forEach((product) => {
-    if(product.category === "Products"){
-        const card = document.createElement('div');
-        card.classList.add('col-12', 'col-md-6', 'col-lg-4', 'col-xl-3', 'pb-3');
-        
-        // Define the card's content using template literals
-        const cardContent = `
+          // Define the card's content using template literals
+          const cardContent = `
             <div class='card'>
                 <img src='${product.image}' class='card-img-top' alt='card-img-top'>
                 <div class='card-body d-flex flex-column justify-content-between'>
@@ -139,18 +141,23 @@ function generateProductCards() {
                     </div>
                 </div>
             </div>
-        `;
-    
-        // Set the card's HTML content
-        card.innerHTML = cardContent;
-        // Append the card to the products container
-        productsContainer.append(card);
+          `;
+
+          // Set the card's HTML content
+          card.innerHTML = cardContent;
+          // Append the card to the products container
+          productsContainer.append(card);
+        }
+
+      });
+    } else {
+      throw new Error("Unable to get products");
     }
-    
-  });
+  } catch (error) {
+    console.log("Error: " + error);
+  }
 }
 
 generateProductCards();
-
 
 
