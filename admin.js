@@ -1,9 +1,3 @@
-// DOM VARIABLES
-// const productForm = document.getElementById("productForm");
-
-// const productURL = "localhost:8080/products"; 
-// const productController = new ProductController();
-
 const productForm = document.getElementById("productForm");
 const productRows = document.getElementById("productRows");
 const productURL = "http://localhost:8080/products"; 
@@ -75,24 +69,4 @@ const displayProducts = function(products) {
   });
 };
 
-getProduct(); // Fetch and display the initial list of products on page load
-
-// // EVENT LISTENERS
-// productForm.addEventListener("submit", function(event) {
-//   event.preventDefault();
-//   const productImage = document.getElementById("productImage").value;
-//   const productName = document.getElementById("productName").value;
-//   const productDescription = document.getElementById("productDescription").value; 
-//   const productPrice = document.getElementById("productPrice").value;
-//   const productCategory = document.getElementById("productCategory").value;
-
-//   productController.addProduct(productImage, productName, productDescription, productPrice, productCategory);
-
-//   productController.setLocalStorage();
-
-//   displayProducts();
-
-//   productForm.reset();
-// });
-
-// displayProducts();
+getProduct(); 

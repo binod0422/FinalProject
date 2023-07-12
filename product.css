@@ -31,6 +31,7 @@ body {
 }
 /* End of Nav bar */ 
 
+
 h1{
     color: #03045E; 
     letter-spacing: 1px;  
@@ -39,6 +40,7 @@ h1{
 
 .btn-green {
     background-color: #06d6a0;
+    height: 2.5em;  
 }
 
 .btn-green:hover{
@@ -46,6 +48,7 @@ h1{
 }
 .btn-yellow {
     background-color: #ffd60a;
+    height: 2.5em; 
 }
 
 .btn-yellow:hover {
@@ -54,7 +57,7 @@ h1{
 
 
 .card {
-  padding: 20px;
+  padding: 10px;
   height: 40em;
   position: relative;
   line-height: 2em;
